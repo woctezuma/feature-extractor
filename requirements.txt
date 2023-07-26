@@ -1,6 +1,2 @@
-pandas
-matplotlib
-tqdm
-augly
 timm
-scikit-learn
+tqdm
