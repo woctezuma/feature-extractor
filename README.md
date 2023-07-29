@@ -19,6 +19,8 @@ Run:
  --output_dir features --data_dir images --batch_size 256 \
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
  --resize_size 256 --keep_ratio --crop_size 224 \
+ --torch_features fts.pth --numpy_features fts.npy \
+ --img_list img_list.json \
  --verbose
 ```
 The following files will be saved in the `--output_dir` folder: 
