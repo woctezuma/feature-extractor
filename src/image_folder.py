@@ -14,7 +14,7 @@ def get_image_paths(path):
     logging.info(f"Resolving files in: {path}")
     paths = []
     for _dirpath, _dirnames, filenames in os.walk(path):
-        paths.extend([Path(path) / filename for filename in filenames])
+        paths.extend([str(Path(path) / filename) for filename in filenames])
     return sorted([fn for fn in paths if is_image_file(fn)])
 
 
