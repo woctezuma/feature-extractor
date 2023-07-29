@@ -1,9 +1,11 @@
 import torch
 import tqdm
 
+from src.device_utils import get_device
+
 
 def extract_features(model, img_loader, batch_size, verbose=True):
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    device = get_device()
 
     features = []
     sample_fnames = []
