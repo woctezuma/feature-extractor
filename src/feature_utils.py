@@ -12,14 +12,14 @@ def extract_features(model, img_loader, batch_size, verbose=True):
 
     with torch.no_grad():
         for ii, imgs in enumerate(tqdm.tqdm(img_loader)):
+            if verbose:
+                print(f"\nExtraction of batch n°{ii}.\n")
             fts = model(imgs.to(device))
             features.append(fts.cpu())
             sample_fnames += [
                 img_loader.dataset.samples[ii * batch_size + jj]
                 for jj in range(fts.shape[0])
             ]
-            if verbose:
-                print(f"\nExtraction of batch n°{ii}.\n")
 
     features = torch.concat(features, dim=0)
 
