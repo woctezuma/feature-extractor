@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 Run:
 ```bash
-!python extract_fts \
+!python extract_fts.py \
  --output_dir features --data_dir images --batch_size 256 \
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
  --resize_size 256 --keep_ratio --crop_size 224
