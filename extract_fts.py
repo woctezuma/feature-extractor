@@ -12,7 +12,7 @@ import torch
 import tqdm
 from torchvision import transforms
 
-from activeindex import utils
+from src import utils
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
