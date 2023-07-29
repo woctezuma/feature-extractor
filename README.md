@@ -18,7 +18,8 @@ Run:
 !python extract_fts.py \
  --output_dir features --data_dir images --batch_size 256 \
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
- --resize_size 256 --keep_ratio --crop_size 224
+ --resize_size 256 --keep_ratio --crop_size 224 \
+ --verbose
 ```
 The following files will be saved in the `--output_dir` folder: 
 - `fts.pt`: the features in a PyTorch file,
@@ -41,7 +42,8 @@ To extract features from the `balloon` dataset:
 !python extract_fts.py \
  --output_dir features --data_dir balloon --batch_size 256 \
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
- --resize_size 256 --keep_ratio --crop_size 224
+ --resize_size 256 --keep_ratio --crop_size 224 \
+ --verbose
 ```
 
 ## References
