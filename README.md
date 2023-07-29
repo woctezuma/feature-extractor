@@ -34,7 +34,7 @@ To extract features from the `balloon` dataset:
 %cd /content
 !git clone https://github.com/woctezuma/feature-extractor.git
 %cd feature-extractor
-%pip install -r requirements.txt
+%pip install --quiet -r requirements.txt
 
 !wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/balloon_dataset.zip
 !unzip -q balloon_dataset.zip
