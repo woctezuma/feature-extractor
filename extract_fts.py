@@ -8,11 +8,14 @@ import json
 from pathlib import Path
 
 import torch
-import tqdm
 
 from src import utils
+from src.feature_utils import extract_features
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
+
+FEATURE_FNAME = 'fts.pth'
+SAMPLE_FNAMES = "filenames.txt"
 
 
 def main():
@@ -34,20 +37,14 @@ def main():
     )
 
     print('>>> Extracting features...')
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
-    features = []
-    with (Path(params.output_dir) / "filenames.txt").open('w') as f, torch.no_grad():
-        for ii, imgs in enumerate(tqdm.tqdm(img_loader)):
-            fts = model(imgs.to(device))
-            features.append(fts.cpu())
-            for jj in range(fts.shape[0]):
-                sample_fname = img_loader.dataset.samples[ii * params.batch_size + jj]
-                f.write(sample_fname + "\n")
+    features, sample_fnames = extract_features(model, img_loader, params.batch_size)
 
     print('>>> Saving features...')
-    features = torch.concat(features, dim=0)
-    torch.save(features, Path(params.output_dir) / 'fts.pth')
+    torch.save(features, Path(params.output_dir) / FEATURE_FNAME)
+
+    print('>>> Saving sample names...')
+    with (Path(params.output_dir) / SAMPLE_FNAMES).open('w') as f:
+        json.dump(sample_fnames, f)
 
 
 if __name__ == '__main__':
