@@ -18,7 +18,7 @@ from src.transform_utils import get_transform
 
 TORCH_FEATURE_FNAME = 'fts.pth'
 NUMPY_FEATURE_FNAME = 'fts.npy'
-SAMPLE_FNAMES = "filenames.txt"
+SAMPLE_FNAMES = "filenames.json"
 
 
 def main():
