@@ -2,9 +2,7 @@
 
 This repository contains Python code to map images to representation vectors, which is useful for image retrieval.
 
-## Usage
-
-### Requirements
+## Requirements
 
 -   Install the latest version of [Python 3.X][python-download-url].
 -   Install the required packages:
@@ -13,7 +11,7 @@ This repository contains Python code to map images to representation vectors, wh
 pip install -r requirements.txt
 ```
 
-### Feature extraction
+## Usage
 
 We provide a simple script to extract features from a given model and a given image folder.
 The features are extracted from the last layer of the model.
