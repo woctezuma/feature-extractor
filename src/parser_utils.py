@@ -35,8 +35,7 @@ def get_parser():
     )
     parser.add_argument(
         "--keep_ratio",
-        type=bool,
-        default=True,
+        action="store_true",
         help="Whether to keep the image ratio: the smallest image side will match `resize_size`.",
     )
     parser.add_argument(
