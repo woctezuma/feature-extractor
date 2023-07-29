@@ -14,8 +14,6 @@ from src import utils
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-
 
 def main():
     params = get_parser().parse_args()
@@ -36,6 +34,8 @@ def main():
     )
 
     print('>>> Extracting features...')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
     features = []
     with (Path(params.output_dir) / "filenames.txt").open('w') as f, torch.no_grad():
         for ii, imgs in enumerate(tqdm.tqdm(img_loader)):
