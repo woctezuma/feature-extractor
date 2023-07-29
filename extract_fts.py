@@ -7,6 +7,7 @@
 import json
 from pathlib import Path
 
+import numpy as np
 import torch
 
 from src.data_utils import get_dataloader
@@ -15,6 +16,7 @@ from src.parser_utils import get_parser
 from src.transform_utils import get_transform
 
 FEATURE_FNAME = 'fts.pth'
+NUMPY_FEATURE_FNAME = 'fts.npy'
 SAMPLE_FNAMES = "filenames.txt"
 
 
@@ -41,6 +43,13 @@ def main():
 
     print('>>> Saving features...')
     torch.save(features, Path(params.output_dir) / FEATURE_FNAME)
+
+    np.save(
+        str(Path(params.output_dir) / NUMPY_FEATURE_FNAME),
+        np.asarray(features, dtype=np.float16),
+        allow_pickle=False,
+        fix_imports=False,
+    )
 
     print('>>> Saving sample names...')
     with (Path(params.output_dir) / SAMPLE_FNAMES).open('w') as f:
