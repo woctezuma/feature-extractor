@@ -1,6 +1,6 @@
 # :pushpin: Feature Extractor
 
-This repository contains Python code to maps images to representation vectors, which is useful for image retrieval.
+This repository contains Python code to map images to representation vectors, which is useful for image retrieval.
 
 ## Usage
 
