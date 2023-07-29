@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-from src.data_utils import get_dataloader
+from src.dataloader_utils import get_dataloader
 from src.device_utils import get_device
 from src.feature_utils import extract_features
 from src.parser_utils import get_parser
