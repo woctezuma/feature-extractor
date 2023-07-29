@@ -39,7 +39,12 @@ def main():
     )
 
     print('>>> Extracting features...')
-    features, sample_fnames = extract_features(model, img_loader, params.batch_size)
+    features, sample_fnames = extract_features(
+        model,
+        img_loader,
+        params.batch_size,
+        verbose=params.verbose,
+    )
 
     print('>>> Saving features...')
     torch.save(features, Path(params.output_dir) / TORCH_FEATURE_FNAME)

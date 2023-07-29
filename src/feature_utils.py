@@ -2,7 +2,7 @@ import torch
 import tqdm
 
 
-def extract_features(model, img_loader, batch_size):
+def extract_features(model, img_loader, batch_size, verbose=True):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     features = []
@@ -16,6 +16,8 @@ def extract_features(model, img_loader, batch_size):
                 img_loader.dataset.samples[ii * batch_size + jj]
                 for jj in range(fts.shape[0])
             ]
+            if verbose:
+                print(f"Extraction: {len(features)} {len(sample_fnames)}")
 
     features = torch.concat(features, dim=0)
 

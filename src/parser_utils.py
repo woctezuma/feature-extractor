@@ -45,5 +45,11 @@ def get_parser():
         help="Desired image output size after the center-crop.",
     )
     parser.add_argument("--batch_size", type=int, default=256, help="Batch size.")
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase output verbosity.",
+    )
 
     return parser
