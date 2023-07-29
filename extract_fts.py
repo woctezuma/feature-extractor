@@ -15,7 +15,7 @@ from src.feature_utils import extract_features
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
 
-FEATURE_FNAME = 'fts.pth'
+TORCH_FEATURE_FNAME = 'fts.pth'
 NUMPY_FEATURE_FNAME = 'fts.npy'
 SAMPLE_FNAMES = "filenames.txt"
 
@@ -42,7 +42,7 @@ def main():
     features, sample_fnames = extract_features(model, img_loader, params.batch_size)
 
     print('>>> Saving features...')
-    torch.save(features, Path(params.output_dir) / FEATURE_FNAME)
+    torch.save(features, Path(params.output_dir) / TORCH_FEATURE_FNAME)
 
     np.save(
         str(Path(params.output_dir) / NUMPY_FEATURE_FNAME),
