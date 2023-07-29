@@ -13,16 +13,16 @@ pip install -r requirements.txt
 
 ## Usage
 
-We provide a simple script to extract features from a given model and a given image folder.
-The features are extracted from the last layer of the model.
-```
-python extract_fts --model_name torchscript --model_path path/to/model --data_dir path/to/folder --output_dir path/to/output
+Run:
+```bash
+!python extract_fts \
+ --output_dir features --data_dir images --batch_size 256 \
+ --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
+ --resize_size 256 --keep_ratio --crop_size 224
 ```
 This will save in the `--output_dir` folder: 
 - `fts.pt`: the features in a torch file, 
-- `filenames.txt`: a file containing the list of filenames corresponding to the features.
-
-By default, images are resized to $288 \times 288$ (it can be changed with the `--resize_size` argument). 
+- `filenames.txt`: the list of image names corresponding to the features.
 
 ## References
 
