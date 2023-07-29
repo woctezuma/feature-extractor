@@ -46,12 +46,6 @@ def get_parser():
         help="Desired image output size after the center-crop.",
     )
     parser.add_argument(
-        "-v",
-        "--verbose",
-        action="store_true",
-        help="Increase output verbosity.",
-    )
-    parser.add_argument(
         "--torch_features",
         type=str,
         default="fts.pth",
@@ -68,6 +62,12 @@ def get_parser():
         type=str,
         default="img_list.json",
         help="An output file with the list of image paths corresponding to the features.",
+    )
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Increase output verbosity.",
     )
 
     return parser
