@@ -9,7 +9,7 @@ from pathlib import Path
 
 import torch
 
-from src import utils
+from src.data_utils import get_dataloader
 from src.feature_utils import extract_features
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
@@ -29,7 +29,7 @@ def main():
     model = torch.hub.load(params.model_repo, params.model_name)
 
     print('>>> Creating dataloader...')
-    img_loader = utils.get_dataloader(
+    img_loader = get_dataloader(
         params.data_dir,
         get_transform(params.resize_size, params.keep_ratio, params.crop_size),
         batch_size=params.batch_size,
