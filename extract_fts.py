@@ -16,10 +16,6 @@ from src.feature_utils import extract_features
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
 
-TORCH_FEATURE_FNAME = 'fts.pth'
-NUMPY_FEATURE_FNAME = 'fts.npy'
-SAMPLE_FNAMES = "filenames.json"
-
 
 def main():
     params = get_parser().parse_args()
@@ -49,17 +45,17 @@ def main():
     )
 
     print('>>> Saving features...')
-    torch.save(features, Path(params.output_dir) / TORCH_FEATURE_FNAME)
+    torch.save(features, Path(params.output_dir) / params.torch_features)
 
     np.save(
-        str(Path(params.output_dir) / NUMPY_FEATURE_FNAME),
+        str(Path(params.output_dir) / params.numpy_features),
         np.asarray(features, dtype=np.float16),
         allow_pickle=False,
         fix_imports=False,
     )
 
     print('>>> Saving sample names...')
-    with (Path(params.output_dir) / SAMPLE_FNAMES).open('w') as f:
+    with (Path(params.output_dir) / params.img_list).open('w') as f:
         json.dump(sample_fnames, f)
 
 

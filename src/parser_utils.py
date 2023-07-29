@@ -51,5 +51,23 @@ def get_parser():
         action="store_true",
         help="Increase output verbosity.",
     )
+    parser.add_argument(
+        "--torch_features",
+        type=str,
+        default="fts.pth",
+        help="An output file with the features in PyTorch format.",
+    )
+    parser.add_argument(
+        "--numpy_features",
+        type=str,
+        default="fts.npy",
+        help="An output file with the features in NumPy format.",
+    )
+    parser.add_argument(
+        "--img_list",
+        type=str,
+        default="img_list.json",
+        help="An output file with the list of image paths corresponding to the features.",
+    )
 
     return parser
