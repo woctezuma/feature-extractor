@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-Run:
+Given a Github repository which includes `hubconf.py`, run:
 ```bash
 !python extract_fts.py \
  --output_dir features --data_dir images --batch_size 256 \
@@ -30,7 +30,7 @@ The following files will be saved in the `--output_dir` folder:
 
 ## Example
 
-To extract features from the `balloon` dataset:
+For instance, to extract features for images in the `balloon` dataset:
 
 ```bash
 %cd /content
