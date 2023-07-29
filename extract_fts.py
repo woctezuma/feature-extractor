@@ -73,9 +73,7 @@ if __name__ == '__main__':
     Path(params.output_dir).mkdir(parents=True, exist_ok=True)
 
     print('>>> Building backbone...')
-    model = utils.build_backbone(path=params.model_path, name=params.model_name)
-    model.eval()
-    model.to(device)
+    model = torch.hub.load(params.model_repo, params.model_name)
 
     print('>>> Creating dataloader...')
     NORMALIZE_IMAGENET = transforms.Normalize(

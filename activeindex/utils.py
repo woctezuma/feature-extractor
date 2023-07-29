@@ -9,55 +9,11 @@ import logging
 import os
 from pathlib import Path
 
-import timm
-import torch
 from PIL import ImageFile
-from torch import nn
 from torch.utils.data import DataLoader
-from torchvision import models
 from torchvision.datasets.folder import default_loader, is_image_file
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
-
-
-# Model
-
-
-def build_backbone(path, name):
-    """Build a pretrained torchvision backbone from its name.
-    Args:
-        path: path to the checkpoint, can be an URL
-        name: "torchscript" or name of the architecture from torchvision (see https://pytorch.org/vision/stable/models.html)
-        or timm (see https://rwightman.github.io/pytorch-image-models/models/).
-    Returns:
-        model: nn.Module
-    """
-    if name == 'torchscript':
-        model = torch.jit.load(path)
-        return model
-
-    if hasattr(models, name):
-        model = getattr(models, name)(pretrained=True)
-    elif name in timm.list_models():
-        model = timm.models.create_model(name, num_classes=0)
-    else:
-        raise NotImplementedError('Model %s does not exist in torchvision' % name)
-    model.head = nn.Identity()
-    model.fc = nn.Identity()
-    if path is not None:
-        if path.startswith("http"):
-            checkpoint = torch.hub.load_state_dict_from_url(path, progress=False)
-        else:
-            checkpoint = torch.load(path)
-        state_dict = checkpoint
-        for ckpt_key in ('state_dict', 'model_state_dict', 'teacher'):
-            if ckpt_key in checkpoint:
-                state_dict = checkpoint[ckpt_key]
-        state_dict = {k.replace("module.", ""): v for k, v in state_dict.items()}
-        state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
-        msg = model.load_state_dict(state_dict, strict=False)
-        print(msg)
-    return model
 
 
 # Data loading
