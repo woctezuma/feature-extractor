@@ -10,9 +10,9 @@ from pathlib import Path
 
 import torch
 import tqdm
-from torchvision import transforms
 
 from src import utils
+from src.transform_utils import get_transform
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -76,20 +76,9 @@ if __name__ == '__main__':
     model = torch.hub.load(params.model_repo, params.model_name)
 
     print('>>> Creating dataloader...')
-    NORMALIZE_IMAGENET = transforms.Normalize(
-        mean=[0.485, 0.456, 0.406],
-        std=[0.229, 0.224, 0.225],
-    )
-    default_transform = transforms.Compose(
-        [
-            transforms.ToTensor(),
-            NORMALIZE_IMAGENET,
-            transforms.Resize((params.resize_size, params.resize_size)),
-        ],
-    )
     img_loader = utils.get_dataloader(
         params.data_dir,
-        default_transform,
+        get_transform(params.resize_size, params.keep_ratio, params.crop_size),
         batch_size=params.batch_size,
         collate_fn=None,
     )
