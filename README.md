@@ -24,7 +24,7 @@ Run:
 The following files will be saved in the `--output_dir` folder: 
 - `fts.pth`: the features in a PyTorch file,
 - `fts.npy`: the features in a NumPy file, 
-- `filenames.txt`: the list of image names corresponding to the features.
+- `img_list.json`: the list of image names corresponding to the features.
 
 ## Example
 
