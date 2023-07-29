@@ -11,6 +11,7 @@ import numpy as np
 import torch
 
 from src.data_utils import get_dataloader
+from src.device_utils import get_device
 from src.feature_utils import extract_features
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
@@ -29,6 +30,7 @@ def main():
 
     print('>>> Building backbone...')
     model = torch.hub.load(params.model_repo, params.model_name)
+    model.to(get_device())
 
     print('>>> Creating dataloader...')
     img_loader = get_dataloader(
