@@ -22,7 +22,7 @@ Run:
  --verbose
 ```
 The following files will be saved in the `--output_dir` folder: 
-- `fts.pt`: the features in a PyTorch file,
+- `fts.pth`: the features in a PyTorch file,
 - `fts.npy`: the features in a NumPy file, 
 - `filenames.txt`: the list of image names corresponding to the features.
 
