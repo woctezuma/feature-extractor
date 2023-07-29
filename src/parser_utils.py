@@ -67,7 +67,7 @@ def get_parser():
         "-v",
         "--verbose",
         action="store_true",
-        help="Increase output verbosity.",
+        help="Whether to increase output verbosity.",
     )
 
     return parser
