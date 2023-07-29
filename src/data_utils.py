@@ -18,7 +18,7 @@ def get_dataloader(
     data_dir,
     transform,
     batch_size=128,
-    num_workers=8,
+    num_workers=2,
     collate_fn=collate_fn,
 ):
     """Get dataloader for the images in the data_dir."""
