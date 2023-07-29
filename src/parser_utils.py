@@ -15,6 +15,7 @@ def get_parser():
         default="images",
         help="The path to the input folder where images are stored.",
     )
+    parser.add_argument("--batch_size", type=int, default=256, help="Batch size.")
     parser.add_argument(
         "--model_repo",
         type=str,
@@ -44,7 +45,6 @@ def get_parser():
         default=224,
         help="Desired image output size after the center-crop.",
     )
-    parser.add_argument("--batch_size", type=int, default=256, help="Batch size.")
     parser.add_argument(
         "-v",
         "--verbose",
