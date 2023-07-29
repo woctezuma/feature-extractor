@@ -19,7 +19,7 @@ def extract_features(model, img_loader, batch_size, verbose=True):
                 for jj in range(fts.shape[0])
             ]
             if verbose:
-                print(f"\nExtraction of batch n°{len(features)}.\n")
+                print(f"\nExtraction of batch n°{ii}.\n")
 
     features = torch.concat(features, dim=0)
 
