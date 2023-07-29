@@ -20,8 +20,8 @@ Run:
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
  --resize_size 256 --keep_ratio --crop_size 224
 ```
-This will save in the `--output_dir` folder: 
-- `fts.pt`: the features in a torch file,
+The following files will be saved in the `--output_dir` folder: 
+- `fts.pt`: the features in a PyTorch file,
 - `fts.npy`: the features in a NumPy file, 
 - `filenames.txt`: the list of image names corresponding to the features.
 
