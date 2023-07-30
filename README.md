@@ -20,7 +20,8 @@ Given a Github repository which includes `hubconf.py`, run:
  --resize_size 256 --keep_ratio --crop_size 224 \
  --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
  --output_dir features \
- --torch_features fts.pth --numpy_features fts.npy \
+ --torch_features fts.pth \
+ --numpy_features fts.npy \
  --img_list img_list.json \
  --verbose
 ```
