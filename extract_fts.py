@@ -13,6 +13,7 @@ import torch
 from src.dataloader_utils import get_dataloader
 from src.device_utils import get_device
 from src.feature_utils import extract_features
+from src.numpy_utils import save_as_numpy_file
 from src.parser_utils import get_parser
 from src.transform_utils import get_transform
 
@@ -47,12 +48,8 @@ def main():
     print('>>> Saving features...')
     torch.save(features, Path(params.output_dir) / params.torch_features)
 
-    np.save(
-        str(Path(params.output_dir) / params.numpy_features),
-        np.asarray(features, dtype=np.float16),
-        allow_pickle=False,
-        fix_imports=False,
-    )
+    fname = Path(params.output_dir) / params.numpy_features
+    save_as_numpy_file(fname, features, np.float16)
 
     print('>>> Saving sample names...')
     with (Path(params.output_dir) / params.img_list).open('w') as f:
