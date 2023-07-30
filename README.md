@@ -25,7 +25,7 @@ Given a Github repository which includes `hubconf.py`, run:
 ```
 The following files will be saved in the `--output_dir` folder: 
 - `fts.pth`: the features in a PyTorch file,
-- `fts.npy`: the features in a NumPy file, 
+- `fts.npy`: the features (as `np.float16`) in a NumPy file, 
 - `img_list.json`: the list of image paths corresponding to the features.
 
 ## Example
