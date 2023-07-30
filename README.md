@@ -41,11 +41,7 @@ For instance, to extract features for images in the `balloon` dataset:
 !wget https://github.com/matterport/Mask_RCNN/releases/download/v2.1/balloon_dataset.zip
 !unzip -q balloon_dataset.zip
 
-!python extract_fts.py \
- --output_dir features --data_dir balloon --batch_size 256 \
- --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
- --resize_size 256 --keep_ratio --crop_size 224 \
- --verbose
+!python extract_fts.py --data_dir balloon
 ```
 
 ## References
