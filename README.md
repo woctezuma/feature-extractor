@@ -50,6 +50,9 @@ For instance, to extract features for images in the `balloon` dataset:
 
 ## References
 
+-   A [feature matcher][feature-matcher] based on the `faiss` library.
+-   [`match-steam-banners`][github-match-steam-banners]: retrieve games with similar store banners.
+-   [`steam-DINOv2`][github-match-with-dinov2]: retrieve games with similar store banners, using Meta AI's DINOv2.
 -   Meta AI's *Active Image Indexing*:
     - [Official blog post][active-image-indexing-blog]
     - [Official Github repository][active-image-indexing-github]
@@ -58,6 +61,9 @@ For instance, to extract features for images in the `balloon` dataset:
 <!-- Definitions -->
 
 [python-download-url]: <https://www.python.org/downloads/>
+[feature-matcher]: <https://github.com/woctezuma/feature-matcher>
+[github-match-steam-banners]: <https://github.com/woctezuma/match-steam-banners>
+[github-match-with-dinov2]: <https://github.com/woctezuma/steam-DINOv2>
 [active-image-indexing-blog]: <https://pierrefdz.github.io/publications/activeindexing/>
 [active-image-indexing-github]: <https://github.com/facebookresearch/active_indexing>
 [active-image-indexing-arxiv]: <https://arxiv.org/abs/2210.10620>
