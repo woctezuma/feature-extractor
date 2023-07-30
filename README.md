@@ -16,9 +16,10 @@ pip install -r requirements.txt
 Given a Github repository which includes `hubconf.py`, run:
 ```bash
 !python extract_fts.py \
- --output_dir features --data_dir images --batch_size 256 \
- --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
+ --data_dir images --batch_size 256 \
  --resize_size 256 --keep_ratio --crop_size 224 \
+ --model_repo "facebookresearch/dinov2" --model_name dinov2_vits14 \
+ --output_dir features \
  --torch_features fts.pth --numpy_features fts.npy \
  --img_list img_list.json \
  --verbose
